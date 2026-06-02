@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ansh AI Video Generator</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansh AI Image Generator</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h1>Ansh AI Video Generator</h1>
+        <h1>Ansh AI Image Generator</h1>
+        <p>Create AI Images From Text Prompts</p>
 
-<p class="subtitle">
-Create AI Videos from Text Prompts
-</p>
+        <textarea
+            id="prompt"
+            placeholder="Enter your image prompt here..."
+        ></textarea>
 
-<textarea
-id="prompt"
-placeholder="Enter your video prompt here..."
-></textarea>
+        <button onclick="generateImage()">
+            Generate Image
+        </button>
 
-<button id="generateBtn">
-Generate Video
-</button>
+        <div id="result">
+            Your generated image will appear here.
+        </div>
 
-<div id="result">
-<p>Your generated video will appear here.</p>
-</div>
+    </div>
 
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
