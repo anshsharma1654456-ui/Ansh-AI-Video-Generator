@@ -10,28 +10,36 @@ async function generateImage() {
     }
 
     result.innerHTML = `
-        <h2>Generating AI Image...</h2>
-        <br>
-        <p>Please wait a few seconds...</p>
+        <h2>Generating AI Images...</h2>
+        <p>Please wait...</p>
     `;
 
     const width = ratio.split("x")[0];
     const height = ratio.split("x")[1];
 
-    const imageUrl =
-        `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=${width}&height=${height}`;
+    let images = "";
+
+    for(let i = 1; i <= 4; i++){
+
+        const imageUrl =
+        `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=${width}&height=${height}&seed=${Date.now()+i}`;
+
+        images += `
+            <div class="image-card">
+                <img src="${imageUrl}" alt="AI Image">
+
+                <a class="download-btn"
+                   href="${imageUrl}"
+                   target="_blank">
+                   Download
+                </a>
+            </div>
+        `;
+    }
 
     result.innerHTML = `
-        <img src="${imageUrl}" alt="AI Generated Image">
-
-        <br>
-
-        <a
-            class="download-btn"
-            href="${imageUrl}"
-            target="_blank"
-        >
-            Download Image
-        </a>
+        <div class="gallery">
+            ${images}
+        </div>
     `;
 }
