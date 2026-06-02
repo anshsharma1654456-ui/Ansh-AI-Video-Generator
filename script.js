@@ -1,25 +1,18 @@
-document.getElementById("generateBtn").addEventListener("click", function () {
+function generateImage() {
 
-const prompt = document.getElementById("prompt").value;
+    const prompt = document.getElementById("prompt").value;
+    const result = document.getElementById("result");
 
-if(prompt.trim() === ""){
-alert("Please enter a prompt");
-return;
+    if(prompt.trim() === ""){
+        alert("Please enter a prompt");
+        return;
+    }
+
+    result.innerHTML = "<h2>Generating Image...</h2>";
+
+    setTimeout(() => {
+        result.innerHTML = `
+            <img src="https://picsum.photos/800/500?random=${Date.now()}" alt="Generated Image">
+        `;
+    }, 1500);
 }
-
-document.getElementById("result").innerHTML = `
-<h3>Generating AI Video...</h3>
-<p>Please wait...</p>
-`;
-
-setTimeout(() => {
-
-document.getElementById("result").innerHTML = `
-<h3>Prompt Received</h3>
-<p>${prompt}</p>
-<p>✅ AI Video Generated Successfully</p>
-`;
-
-},3000);
-
-});
