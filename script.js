@@ -1,18 +1,19 @@
-function generateImage() {
+async function generateImage() {
 
     const prompt = document.getElementById("prompt").value;
     const result = document.getElementById("result");
 
-    if(prompt.trim() === ""){
+    if (!prompt.trim()) {
         alert("Please enter a prompt");
         return;
     }
 
-    result.innerHTML = "<h2>Generating Image...</h2>";
+    result.innerHTML = "<h2>Generating AI Image...</h2>";
 
-    setTimeout(() => {
-        result.innerHTML = `
-            <img src="https://picsum.photos/800/500?random=${Date.now()}" alt="Generated Image">
-        `;
-    }, 1500);
+    const imageUrl =
+        `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}`;
+
+    result.innerHTML = `
+        <img src="${imageUrl}" alt="AI Generated Image">
+    `;
 }
